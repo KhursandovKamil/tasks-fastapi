@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class TaskAddModel(BaseModel):
     name: str
-    description: str | None
+    description: str | None = None
 
 class TaskAddResponse(BaseModel):
     ok: bool
@@ -10,4 +10,6 @@ class TaskAddResponse(BaseModel):
 
 class TaskModel(TaskAddModel):
     id: int
+
+    model_config = ConfigDict(from_attributes=True)
 

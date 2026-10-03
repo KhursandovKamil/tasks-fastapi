@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Body
 
 from repository import TaskRepository
 from schemas import TaskAddModel, TaskModel, TaskAddResponse
@@ -11,7 +11,7 @@ router = APIRouter(
 
 @router.post("")
 async def add_task(
-    task: Annotated[TaskAddModel, Depends()],
+    task: Annotated[TaskAddModel, Body()],
 ) -> TaskAddResponse:
     task_id = await TaskRepository.add_one(task)
 
