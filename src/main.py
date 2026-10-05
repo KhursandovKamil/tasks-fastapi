@@ -3,8 +3,8 @@ from typing import Annotated
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
-from database import create_tables, delete_tables
-from router import router as tasks_router
+from src.database import create_tables, delete_tables
+from src.api import main_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -19,4 +19,4 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan = lifespan)
 
-app.include_router(tasks_router)
+app.include_router(main_router)
