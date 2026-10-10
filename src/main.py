@@ -1,10 +1,12 @@
-from typing import Annotated
-
-from fastapi import FastAPI
+import sys
 from contextlib import asynccontextmanager
 
-from src.database import create_tables, delete_tables
+from fastapi import FastAPI
+
 from src.api import main_router
+from src.database import create_tables, delete_tables
+
+print(sys.version)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

@@ -1,8 +1,9 @@
 from typing import Annotated
+
 from fastapi import APIRouter, Body
 
+from src.tasks.schemas import Task, TaskAdd, TaskAddResponse
 from src.tasks.service import TaskService
-from src.tasks.schemas import TaskAdd, Task, TaskAddResponse
 
 tasks_router = APIRouter(
     prefix = "/tasks",

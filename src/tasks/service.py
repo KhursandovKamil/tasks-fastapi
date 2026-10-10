@@ -3,7 +3,8 @@ from sqlalchemy.sql import select
 
 from src.database import new_session
 from src.tasks.models import TaskOrm
-from src.tasks.schemas import TaskAdd, Task
+from src.tasks.schemas import Task, TaskAdd
+
 
 class TaskService:
     @classmethod
